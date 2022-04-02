@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class SceneController : MonoBehaviour
 {
     public GameObject UI_GameLost;
+    public GameObject EnemyCreator;
 
     // Start is called before the first frame update
     void Start()
@@ -22,6 +23,7 @@ public class SceneController : MonoBehaviour
     public void LoseGame()
     {
         UI_GameLost.SetActive(true);
+        EnemyCreator.SetActive(false);
         Time.timeScale = 0;
     }
 

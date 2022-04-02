@@ -18,8 +18,7 @@ public class EnemyGenerator : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        GameObject NewEnemy = Instantiate(Enemy1);
-        NewEnemy.transform.position = transform.position + new Vector3(0, Random.Range(-Altura, Altura), 0);
+        
     }
 
     // Update is called once per frame
@@ -40,7 +39,7 @@ public class EnemyGenerator : MonoBehaviour
                 NewEnemy.transform.position = transform.position + new Vector3(0, Random.Range(-Altura, Altura), 0);
                 MaxTime = Random.Range(10, 60);
             }
-            else if (numEnemy == 2)
+            else if (numEnemy == 3)
             {
                 GameObject NewEnemy = Instantiate(Enemy3);
                 NewEnemy.transform.position = transform.position + new Vector3(0, Random.Range(-Altura, Altura), 0);

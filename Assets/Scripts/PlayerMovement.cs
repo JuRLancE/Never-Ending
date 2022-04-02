@@ -33,10 +33,10 @@ public class PlayerMovement : MonoBehaviour
             if (score > bestScore)
             {
                 bestScore = score;
-                bestScoreString.text = "Best score: " + bestScore;
             }
 
             scoreString.text = "Score: " + score;
+            bestScoreString.text = "Best score: " + bestScore;
             score++;
         }
         else
