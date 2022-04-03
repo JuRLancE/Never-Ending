@@ -139,7 +139,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eafbd0ddee4a7d44b9c046b83e0bfcf3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 2
+  speed: 1
   animator: {fileID: 0}
   trail: {fileID: 7739574656394559374}
 --- !u!70 &1933504212737424835

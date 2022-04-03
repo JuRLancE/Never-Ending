@@ -31,25 +31,25 @@ public class EnemyGenerator : MonoBehaviour
             {
                 GameObject NewEnemy = Instantiate(Enemy1);
                 NewEnemy.transform.position = transform.position + new Vector3(0, Random.Range(-Altura, Altura), 0);
-                MaxTime = Random.Range(100, 500); 
+                MaxTime = Random.Range(10, 50); 
             }
             else if (numEnemy == 2)
             {
                 GameObject NewEnemy = Instantiate(Enemy2);
                 NewEnemy.transform.position = transform.position + new Vector3(0, Random.Range(-Altura, Altura), 0);
-                MaxTime = Random.Range(100, 600);
+                MaxTime = Random.Range(10, 60);
             }
             else if (numEnemy == 3)
             {
                 GameObject NewEnemy = Instantiate(Enemy3);
                 NewEnemy.transform.position = transform.position + new Vector3(0, Random.Range(-Altura, Altura), 0);
-                MaxTime = Random.Range(100, 700);
+                MaxTime = Random.Range(10, 70);
             }
             else if (numEnemy == 4)
             {
                 GameObject NewEnemy = Instantiate(Enemy4);
                 NewEnemy.transform.position = transform.position + new Vector3(0, Random.Range(-Altura, Altura), 0);
-                MaxTime = Random.Range(100, 800);
+                MaxTime = Random.Range(10, 80);
             }
             InitialTime = 0;
         }

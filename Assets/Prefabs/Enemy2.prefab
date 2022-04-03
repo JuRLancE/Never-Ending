@@ -5017,6 +5017,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eafbd0ddee4a7d44b9c046b83e0bfcf3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 6
+  speed: 3
   animator: {fileID: 0}
   trail: {fileID: 1179243965791519306}
