@@ -37,7 +37,7 @@ public class PlayerMovement : MonoBehaviour
 
             scoreString.text = "Score: " + score;
             bestScoreString.text = "Best score: " + bestScore;
-            score++;
+            score += 1;
         }
         else
         {
@@ -49,7 +49,7 @@ public class PlayerMovement : MonoBehaviour
         {
             if (rb.gravityScale > -1)
             {
-                rb.gravityScale--;
+                rb.gravityScale -= 1;
             }
             Engine_fire.SetActive(true);
         }
@@ -57,7 +57,7 @@ public class PlayerMovement : MonoBehaviour
         {
             if(rb.gravityScale < 1)
             {
-                rb.gravityScale++;
+                rb.gravityScale += 1;
             }
             Engine_fire.SetActive(false);
         }

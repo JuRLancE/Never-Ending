@@ -24,32 +24,32 @@ public class EnemyGenerator : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        numEnemy = Random.Range(1, 4);
+        numEnemy = Random.Range(1, 5);
         if (InitialTime > MaxTime)
         {
             if (numEnemy == 1)
             {
                 GameObject NewEnemy = Instantiate(Enemy1);
                 NewEnemy.transform.position = transform.position + new Vector3(0, Random.Range(-Altura, Altura), 0);
-                MaxTime = Random.Range(10, 50); 
+                MaxTime = Random.Range(100, 500); 
             }
             else if (numEnemy == 2)
             {
                 GameObject NewEnemy = Instantiate(Enemy2);
                 NewEnemy.transform.position = transform.position + new Vector3(0, Random.Range(-Altura, Altura), 0);
-                MaxTime = Random.Range(10, 60);
+                MaxTime = Random.Range(100, 600);
             }
             else if (numEnemy == 3)
             {
                 GameObject NewEnemy = Instantiate(Enemy3);
                 NewEnemy.transform.position = transform.position + new Vector3(0, Random.Range(-Altura, Altura), 0);
-                MaxTime = Random.Range(10, 70);
+                MaxTime = Random.Range(100, 700);
             }
-            else
+            else if (numEnemy == 4)
             {
                 GameObject NewEnemy = Instantiate(Enemy4);
                 NewEnemy.transform.position = transform.position + new Vector3(0, Random.Range(-Altura, Altura), 0);
-                MaxTime = Random.Range(10, 80);
+                MaxTime = Random.Range(100, 800);
             }
             InitialTime = 0;
         }
