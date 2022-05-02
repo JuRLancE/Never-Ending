@@ -7,6 +7,7 @@ public class SceneController : MonoBehaviour
 {
     public GameObject UI_GameLost;
     public GameObject EnemyCreator;
+    public GameObject ObjectCreator;
 
     // Start is called before the first frame update
     void Start()
@@ -24,6 +25,7 @@ public class SceneController : MonoBehaviour
     {
         UI_GameLost.SetActive(true);
         EnemyCreator.SetActive(false);
+        ObjectCreator.SetActive(false);
         Time.timeScale = 0;
     }
 
