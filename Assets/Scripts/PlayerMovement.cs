@@ -92,7 +92,7 @@ public class PlayerMovement : MonoBehaviour
             {
                 ClearWave.SetActive(true);
                 ClearWave.transform.localScale = new Vector3(scaleX, scaleY, 1f);
-                if (Time.time > clearWaveTime + 10f)
+                if (Time.time > clearWaveTime + 3f)
                 {
                     clearWave = false;
                     scaleX = 1f;
@@ -100,8 +100,8 @@ public class PlayerMovement : MonoBehaviour
                 }
                 else
                 {
-                    scaleX += 0.1f;
-                    scaleY += 0.1f;
+                    scaleX += 0.15f;
+                    scaleY += 0.15f;
                 }
             }
             else

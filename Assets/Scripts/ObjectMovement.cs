@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class ObjectMovement : MonoBehaviour
 {
@@ -8,7 +9,7 @@ public class ObjectMovement : MonoBehaviour
 
     public Animator animator;
     public Rigidbody2D rb;
-
+    public AudioSource Sound;
 
     private bool collected = false;
     private float InitialTime = 0;
@@ -51,6 +52,7 @@ public class ObjectMovement : MonoBehaviour
         {
             animator.SetBool("collected", true);
             collected = true;
+            Sound.Play();
         }
     }
 }

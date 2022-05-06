@@ -38,12 +38,12 @@ public class SceneController : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKey(KeyCode.Escape))
-        {
-            Menu_PauseGame();
-        }
         if (!paused)
         {
+            if (Input.GetKey(KeyCode.Escape))
+            {
+                Menu_PauseGame();
+            }
             AudioPlay.SetActive(true);
             AudioMenu.SetActive(false);
             if (score > bestScore)
@@ -142,5 +142,13 @@ public class SceneController : MonoBehaviour
     {
         inxMenu = 2;
     }
-    
+    public void Quit()
+    {
+        Application.Quit();
+    }
+    public void Quit()
+    {
+        PlayerPrefs.DeleteAll();
+    }
+
 }
