@@ -14,7 +14,7 @@ public class EnemyGenerator : MonoBehaviour
     public GameObject Spawn4;
     public int Type;
     public float Altura;
-    private float difficult;
+    private float difficult = 0;
 
     private float MaxTime;
     private int numObject = 1;
@@ -23,31 +23,31 @@ public class EnemyGenerator : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        difficult = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
-        numObject = Random.Range(1, 101);
+        numObject = Random.Range(0, 101);
         if (InitialTime > MaxTime)
         {
-            if (numObject < percent1)
+            if (percent1 > numObject )
             {
                 GameObject NewEnemy = Instantiate(Spawn1);
                 NewEnemy.transform.position = transform.position + new Vector3(0, Random.Range(-Altura, Altura), 0);
             }
-            else if (numObject >= percent1 && numObject <= percent2)
+            else if (percent1 <= numObject && numObject < (percent1 + percent2))
             {
                 GameObject NewEnemy = Instantiate(Spawn2);
                 NewEnemy.transform.position = transform.position + new Vector3(0, Random.Range(-Altura, Altura), 0);
             }
-            else if (numObject > percent2 && numObject < percent3)
+            else if ((percent1 + percent2) <= numObject && numObject < (percent1 + percent2 + percent3))
             {
                 GameObject NewEnemy = Instantiate(Spawn3);
                 NewEnemy.transform.position = transform.position + new Vector3(0, Random.Range(-Altura, Altura), 0);
             }
-            else if (numObject >= percent3)
+            else if ( percent3 <= numObject)
             {
                 GameObject NewEnemy = Instantiate(Spawn4);
                 NewEnemy.transform.position = transform.position + new Vector3(0, Random.Range(-Altura, Altura), 0);
@@ -55,12 +55,15 @@ public class EnemyGenerator : MonoBehaviour
             switch (Type)
             {
                 case 0://tiempo random de respawn de objetos (para enemigos)
-                    MaxTime = 250 - difficult;
-                    difficult++;
+                    if (difficult < 100)
+                    {
+                        MaxTime = 200 - difficult;
+                        difficult++;
+                    }
                     break;
 
                 case 1://tiempo fijo de respawn de objetos (para items)
-                    MaxTime = 500;
+                    MaxTime = 100;
                     break;
             }
             InitialTime = 0;

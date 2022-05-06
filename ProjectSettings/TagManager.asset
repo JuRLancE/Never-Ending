@@ -10,6 +10,12 @@ TagManager:
   - Shield
   - Fuel
   - Game
+  - Engine_fire
+  - Shield_PU
+  - ClearWave_PU
+  - SpawnShoot
+  - AudioPlay
+  - AudioMenu
   layers:
   - Default
   - TransparentFX

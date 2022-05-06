@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class EnemyMovement : MonoBehaviour
 {
@@ -12,6 +13,7 @@ public class EnemyMovement : MonoBehaviour
     public GameObject trail;
     public Rigidbody2D rb;
 
+    public AudioSource Sound;
 
     private bool dead = false;
     private float InitialTime = 0;
@@ -50,14 +52,14 @@ public class EnemyMovement : MonoBehaviour
             trail.SetActive(true);
             if (player.transform.position.y > transform.position.y)
             {
-                if (rb.rotation >= -20f)
+                if (rb.rotation >= -15f)
                 {
                     rb.rotation += -movility;
                 }
             }
             else if (player.transform.position.y < transform.position.y)
             {
-                if (rb.rotation <= 20f)
+                if (rb.rotation <= 15f)
                 {
                     rb.rotation += movility;
                 }
@@ -67,10 +69,11 @@ public class EnemyMovement : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Enemie") || (collision.CompareTag("Game")))
+        if (collision.CompareTag("Enemie") || (collision.CompareTag("Game")) || (collision.CompareTag("Shield")) || (collision.CompareTag("ClearWave")) || (collision.CompareTag("Player")))
         {
             animator.SetBool("dead", true);
             dead = true;
+            Sound.Play();
         }
     }
 }

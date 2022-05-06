@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 8982163346718893845}
   m_Layer: 0
   m_Name: ClearWave
-  m_TagString: ClearWave
+  m_TagString: ClearWave_PU
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -98,7 +98,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd2c869b0017ade4e871405062aca81b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0.6
+  speed: 1
   animator: {fileID: 8169690497299659321}
   rb: {fileID: 374344340872056031}
 --- !u!50 &374344340872056031
@@ -151,7 +151,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
