@@ -146,7 +146,7 @@ public class SceneController : MonoBehaviour
     {
         Application.Quit();
     }
-    public void Quit()
+    public void DeleteGame()
     {
         PlayerPrefs.DeleteAll();
     }

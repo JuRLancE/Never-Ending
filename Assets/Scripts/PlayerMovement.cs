@@ -161,5 +161,4 @@ public class PlayerMovement : MonoBehaviour
             PlayerPrefs.SetInt("ammo", ammo);
         }
     }
-
 }
