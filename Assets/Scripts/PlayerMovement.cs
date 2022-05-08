@@ -52,12 +52,12 @@ public class PlayerMovement : MonoBehaviour
     {
         if (!paused)
         {
-            if (Input.GetKey(KeyCode.Space) && ammo > 0 && Time.time > fireTime)
+            if (Input.GetMouseButtonDown(0) && ammo > 0 && Time.time > fireTime)
             {
                 fireTime = Time.time + fireRate;
                 Shoot();
             }
-            if (Input.GetKey(KeyCode.W) && fuel >= 0)
+            if (Input.GetKey(KeyCode.Space) && fuel >= 0)
             {
                 if (rb.gravityScale > -1)
                 {
@@ -127,6 +127,7 @@ public class PlayerMovement : MonoBehaviour
             fuel += 1500;
             if (fuel >= 5000) fuel = 5000;
         }else if (collision.CompareTag("Game") || ((collision.CompareTag("Enemie")) && !shield)){
+            Engine_fire.SetActive(false);
             sceneController.Menu_NewGame();
         }
     }
