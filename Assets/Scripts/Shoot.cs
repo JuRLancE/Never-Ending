@@ -14,13 +14,12 @@ public class Shoot : MonoBehaviour
     {
         rb = gameObject.GetComponent<Rigidbody2D>();
         timeShoot = Time.time;
-
-}
+    }
 
     // Update is called once per frame
     void Update()
     {
-        rb.velocity = new Vector2(speed,0f);
+        rb.velocity = new Vector2(speed * Time.deltaTime ,0f);
         if(Time.time > timeShoot + 5f)
         {
             Destroy(gameObject);

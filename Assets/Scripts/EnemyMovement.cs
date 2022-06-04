@@ -17,6 +17,7 @@ public class EnemyMovement : MonoBehaviour
 
     private bool dead = false;
     private float InitialTime = 0;
+    private float deltaTime;
 
     private CapsuleCollider2D CC2D;
 
@@ -32,19 +33,15 @@ public class EnemyMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       
+        deltaTime = Time.deltaTime;
+
         if (dead)
         {
             trail.SetActive(false);
             CC2D.enabled = false;
-            if (InitialTime > 1)
+            if (Time.time > InitialTime + 1f)
             {
                 Destroy(gameObject);
-                InitialTime = 0;
-            }
-            else
-            {
-                InitialTime += Time.deltaTime;
             }
         }
         else
@@ -54,25 +51,26 @@ public class EnemyMovement : MonoBehaviour
             {
                 if (rb.rotation >= -15f)
                 {
-                    rb.rotation += -movility;
+                    rb.rotation += -movility * deltaTime;
                 }
             }
             else if (player.transform.position.y < transform.position.y)
             {
                 if (rb.rotation <= 15f)
                 {
-                    rb.rotation += movility;
+                    rb.rotation += movility * deltaTime;
                 }
             }
-            rb.velocity = -(transform.right * speed);
+            rb.velocity = -(transform.right * speed * deltaTime);
         }
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Enemie") || (collision.CompareTag("Game")) || (collision.CompareTag("Shield")) || (collision.CompareTag("ClearWave")) || (collision.CompareTag("Player")))
+        if (collision.CompareTag("Enemie") || (collision.CompareTag("Game")) || (collision.CompareTag("Bullet")) || (collision.CompareTag("Shield")) || (collision.CompareTag("ClearWave")) || (collision.CompareTag("Player")))
         {
             animator.SetBool("dead", true);
             dead = true;
+            InitialTime = Time.time;
             Sound.Play();
         }
     }

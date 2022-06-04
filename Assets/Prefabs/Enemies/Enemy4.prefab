@@ -5003,8 +5003,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eafbd0ddee4a7d44b9c046b83e0bfcf3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 2
-  movility: 1
+  speed: 100
+  movility: 60
   animator: {fileID: 0}
   player: {fileID: 4965442217760439856, guid: 89fc9ccda9d2ea0488e233cb2195471f, type: 3}
   trail: {fileID: 4007752558081334135}

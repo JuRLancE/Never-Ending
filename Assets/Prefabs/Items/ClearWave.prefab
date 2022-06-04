@@ -99,10 +99,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd2c869b0017ade4e871405062aca81b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1
   animator: {fileID: 8169690497299659321}
   rb: {fileID: 374344340872056031}
   Sound: {fileID: -4955576219519438295}
+  speed: 80
 --- !u!50 &374344340872056031
 Rigidbody2D:
   serializedVersion: 4

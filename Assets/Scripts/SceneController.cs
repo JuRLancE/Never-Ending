@@ -18,14 +18,26 @@ public class SceneController : MonoBehaviour
     private GameObject AudioMenu;
 
 
+    public GameObject BN_Jetpack;
+    public GameObject BN_Belt;
+    public GameObject BN_Purse;
+    public GameObject B_Jetpack;
+    public GameObject B_Belt;
+    public GameObject B_Purse;
+    public int a_jetpack;
+    public int a_belt = 1;
+    public int a_purse;
+
     private int score = 0;
     private int bestScore;
     public Text scoreString;
     public Text bestScoreString;
 
     private bool paused;
+    private bool shopping;
 
     private int inxMenu = 0;
+    private float TempoDec = 0;
 
     void Start()
     {
@@ -33,33 +45,123 @@ public class SceneController : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player");
         AudioPlay = GameObject.FindGameObjectWithTag("AudioPlay");
         AudioMenu = GameObject.FindGameObjectWithTag("AudioMenu");
+        /*B_Jetpack = GameObject.FindGameObjectWithTag("B_Jetpack");
+        B_Belt = GameObject.FindGameObjectWithTag("B_Belt");
+        B_Purse = GameObject.FindGameObjectWithTag("B_Purse");
+        BN_Jetpack = GameObject.FindGameObjectWithTag("BN_Jetpack");
+        BN_Belt = GameObject.FindGameObjectWithTag("BN_Belt");
+        BN_Purse = GameObject.FindGameObjectWithTag("BN_Purse");*/
+        a_belt = PlayerPrefs.GetInt("belt");
+        a_jetpack = PlayerPrefs.GetInt("jetpack");
+        a_purse = PlayerPrefs.GetInt("purse");
         Time.timeScale = 1;
+        TempoDec = 0;
     }
 
     void Update()
     {
         if (!paused)
         {
+            if (TempoDec >= .1f)
+            {
+                TempoDec = 0;
+
+                if (score > bestScore)
+                {
+                    bestScore = score;
+                }
+
+                scoreString.text = "Score: " + score;
+                bestScoreString.text = "Best score: " + bestScore;
+                score += 1;
+            }
+            else
+            {
+                TempoDec = (TempoDec + Time.deltaTime);
+            }
             if (Input.GetKey(KeyCode.Escape))
             {
                 Menu_PauseGame();
             }
             AudioPlay.SetActive(true);
             AudioMenu.SetActive(false);
-            if (score > bestScore)
-            {
-                bestScore = score;
-            }
-
-            scoreString.text = "Score: " + score;
-            bestScoreString.text = "Best score: " + bestScore;
-            score += 1;
+            
         }
         else
         {
             AudioPlay.SetActive(false);
             AudioMenu.SetActive(true);
             PlayerPrefs.SetInt("bestScore", bestScore);
+
+            if (shopping) Hide_Buttons();
+        }
+    }
+    private void Hide_Buttons()
+    {
+        shopping = false;
+
+        if (a_belt == 1)
+        {
+            BN_Belt.SetActive(false);
+            B_Belt.SetActive(true);
+        }
+        else
+        {
+            BN_Belt.SetActive(true);
+            B_Belt.SetActive(false);
+        }
+
+        if (a_jetpack == 1)
+        {
+            BN_Jetpack.SetActive(false);
+            B_Jetpack.SetActive(true);
+        }
+        else
+        {
+            BN_Jetpack.SetActive(true);
+            B_Jetpack.SetActive(false);
+        }
+
+        if (a_purse == 1)
+        {
+            BN_Purse.SetActive(false);
+            B_Purse.SetActive(true);
+        }
+        else
+        {
+            BN_Purse.SetActive(true);
+            B_Purse.SetActive(false);
+        }
+    }
+    public void Buy_Jetpack()
+    {
+        if (player.GetComponent<PlayerMovement>().coins >= 250)
+        {
+            a_jetpack = 1;
+            PlayerPrefs.SetInt("jetpack", a_jetpack);
+            Hide_Buttons();
+            player.GetComponent<PlayerMovement>().coins -= 250;
+        }
+    }
+    public void Buy_Belt()
+    {
+        if (player.GetComponent<PlayerMovement>().coins >= 250)
+        {
+            a_belt = 1;
+            PlayerPrefs.SetInt("belt", a_belt);
+            Hide_Buttons();
+            player.GetComponent<PlayerMovement>().coins -= 250; 
+        }
+    }
+
+    public void Buy_Purse()
+    {
+        if (player.GetComponent<PlayerMovement>().coins >= 500)
+        {
+            a_purse = 1;
+            PlayerPrefs.SetInt("purse", a_purse);
+            Hide_Buttons();
+            player.GetComponent<PlayerMovement>().coins -= 500;
         }
     }
     public void Menu_PauseGame()
@@ -111,6 +213,8 @@ public class SceneController : MonoBehaviour
         UI_Credits.SetActive(false);
         UI_Controls.SetActive(false);
         UI_Shop.SetActive(true);
+
+        shopping = true;
     }
     public void Action_NewGame() 
     {

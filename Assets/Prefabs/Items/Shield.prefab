@@ -99,10 +99,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd2c869b0017ade4e871405062aca81b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1
   animator: {fileID: 7377798237291285186}
   rb: {fileID: 2335123925997626907}
   Sound: {fileID: -2307238523925871593}
+  speed: 80
 --- !u!95 &7377798237291285186
 Animator:
   serializedVersion: 3

@@ -157,8 +157,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eafbd0ddee4a7d44b9c046b83e0bfcf3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 8
-  movility: 0.2
+  speed: 400
+  movility: 20
   animator: {fileID: 0}
   player: {fileID: 0}
   trail: {fileID: 5008693656464309101}

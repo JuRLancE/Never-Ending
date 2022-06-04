@@ -5,16 +5,19 @@ using UnityEngine.Audio;
 
 public class ObjectMovement : MonoBehaviour
 {
-    public float speed;
 
     public Animator animator;
     public Rigidbody2D rb;
     public AudioSource Sound;
 
-    private bool collected = false;
-    private float InitialTime = 0;
+    public float speed;
 
     private BoxCollider2D CC2D;
+
+    private bool collected = false;
+    private float InitialTime = 0;
+    private float deltatime;
+
 
     // Start is called before the first frame update
     void Start()
@@ -22,28 +25,24 @@ public class ObjectMovement : MonoBehaviour
         animator = GetComponent<Animator>();
         CC2D = GetComponent<BoxCollider2D>();
         rb = GetComponent<Rigidbody2D>();
+        deltatime = Time.deltaTime;
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        deltatime = Time.deltaTime;
         if (collected)
         {
             CC2D.enabled = false;
-            if (InitialTime > 0.5f)
+            if ( Time.time > InitialTime + 0.5f)
             {
                 Destroy(gameObject);
-                InitialTime = 0;
-            }
-            else
-            {
-                InitialTime += Time.deltaTime;
             }
         }
         else
         {
-            rb.velocity = -(transform.right * speed);
+            rb.velocity = -(transform.right * speed * deltatime);
         }
     }
     private void OnTriggerEnter2D(Collider2D collision)
@@ -52,7 +51,15 @@ public class ObjectMovement : MonoBehaviour
         {
             animator.SetBool("collected", true);
             collected = true;
+            InitialTime = Time.time;
             Sound.Play();
+        }
+
+        if (collision.CompareTag("Player"))
+        {
+            animator.SetBool("collected", true);
+            collected = true;
+            InitialTime = Time.time;
         }
     }
 }

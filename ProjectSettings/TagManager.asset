@@ -16,6 +16,13 @@ TagManager:
   - SpawnShoot
   - AudioPlay
   - AudioMenu
+  - BN_Jetpack
+  - B_Jetpack
+  - BN_Belt
+  - B_Belt
+  - BN_Purse
+  - B_Purse
+  - Bullet
   layers:
   - Default
   - TransparentFX
