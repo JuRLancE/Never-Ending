@@ -31,7 +31,6 @@ public class PlayerMovement : MonoBehaviour
     private float clearWaveTime = 0f;
     private float TempoDec = 0;
 
-
     //Text
     public Text t_fuel;
     public Text t_coin;

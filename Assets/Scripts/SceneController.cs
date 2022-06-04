@@ -45,12 +45,6 @@ public class SceneController : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player");
         AudioPlay = GameObject.FindGameObjectWithTag("AudioPlay");
         AudioMenu = GameObject.FindGameObjectWithTag("AudioMenu");
-        /*B_Jetpack = GameObject.FindGameObjectWithTag("B_Jetpack");
-        B_Belt = GameObject.FindGameObjectWithTag("B_Belt");
-        B_Purse = GameObject.FindGameObjectWithTag("B_Purse");
-        BN_Jetpack = GameObject.FindGameObjectWithTag("BN_Jetpack");
-        BN_Belt = GameObject.FindGameObjectWithTag("BN_Belt");
-        BN_Purse = GameObject.FindGameObjectWithTag("BN_Purse");*/
         a_belt = PlayerPrefs.GetInt("belt");
         a_jetpack = PlayerPrefs.GetInt("jetpack");
         a_purse = PlayerPrefs.GetInt("purse");
